@@ -16,7 +16,7 @@ Uma API simples para gerenciar registros de aniversários e funcionalidades rela
 
 1. Clone o repositório:
     ```sh
-    git clone https://github.com/yourusername/birthday-api.git
+    git clone https://github.com/JoaoVitor-Mendes/api-birthday.git
     ```
 2. Vá para o diretório do projeto:
     ```sh
