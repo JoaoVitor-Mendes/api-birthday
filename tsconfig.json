@@ -1,15 +1,12 @@
 {
-    "compilerOptions": {
-      "target": "ES6",
-      "module": "commonjs",
-      "outDir": "./dist",
-      "rootDir": "./src",
-      "strict": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true
-    },
-    "include": ["src/**/*.ts"],
-    "exclude": ["node_modules", "dist"]
-  }
-  
+  "compilerOptions": {
+    "target": "ES6",              // Versão do ECMAScript
+    "module": "CommonJS",         // Módulo utilizado no Node.js
+    "outDir": "./dist",           // Diretório de saída para os arquivos compilados
+    "rootDir": "./src",           // Diretório de entrada dos arquivos TypeScript
+    "esModuleInterop": true,      // Habilita interoperabilidade entre ES6 e CommonJS
+    "sourceMap": true             // Habilita a geração de source maps para o debug
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

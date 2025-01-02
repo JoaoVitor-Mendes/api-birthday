@@ -17,6 +17,11 @@ export const createBirthday = async (req: UserRequest, res: Response): Promise<a
       return res.status(400).json({ error: 'Data do aniversário é obrigatória.' });
     }
 
+    // Verifica se a descrição do aniversário foi fornecida
+    if (!description) {
+      return res.status(400).json({ error: 'Descrição do aniversário é obrigatória.' });
+    }
+
     // Cria o aniversário no banco de dados
     const birthday = await Birthday.create({
       userId,
