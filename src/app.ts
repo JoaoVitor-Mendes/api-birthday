@@ -1,4 +1,5 @@
-import express from 'express';
+import express from 'express';7
+import cors from 'cors';
 import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes';
 import birthdayRoutes from './routes/birthdayRoutes';
@@ -10,7 +11,9 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/api/users', userRoutes);
+app.use(cors());
+
+app.use('/api', userRoutes);
 app.use('/api', birthdayRoutes);
 
 const port = process.env.PORT || 3000;

@@ -7,7 +7,7 @@ export const registerUser = async (req: Request, res: Response): Promise<void> =
   const { username, password } = req.body;
 
   try {
-    const hashedPassword = await User.hashPassword(password);
+    const hashedPassword = await bcrypt.hash(password, 10);
     await User.create({ username, password: hashedPassword });
     res.status(201).json({ message: 'Usuário registrado com sucesso' });
   } catch (err) {
@@ -27,11 +27,10 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    const hash = await bcrypt.hash(password, 10);
-    const validPassword = await bcrypt.compare(password, hash);
+    const validPassword = await bcrypt.compare(password, user.password);
 
     if (!validPassword) {
-      res.status(400).json({ error: 'Senha inválida.' });
+      res.status(400).json({ "statusCode": 400, "message": "Senha inválida. Por favor, tente novamente." });
       return;
     }
 
